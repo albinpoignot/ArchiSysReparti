@@ -1,4 +1,0 @@
-ArchiSysReparti
-===============
-
-ArchiSysReparti
