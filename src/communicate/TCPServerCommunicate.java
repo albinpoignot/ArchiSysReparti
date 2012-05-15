@@ -18,13 +18,9 @@ public class TCPServerCommunicate extends TCPServerBuilder implements Runnable {
 			
 			s = getSs().accept();
 			
-			InputStream in = s.getInputStream();
-			byte[] buffer = new byte[8192];
-			int count = in.read(buffer);
-			String msIn = new String(buffer,0,count) ;
-			in.close();
+			String response = read(s);
 			
-			System.out.println("Received : " + msIn);
+			System.out.println("Rcvd : " + response);
 			
 			s.close();
 		}

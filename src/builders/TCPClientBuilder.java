@@ -2,7 +2,7 @@ package builders;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 
-public class TCPClientBuilder extends TCPInfo {
+public class TCPClientBuilder extends TCPRW {
 	private Socket s;
 	private InetSocketAddress isA;
 	

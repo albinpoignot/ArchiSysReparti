@@ -2,7 +2,7 @@ package builders;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 
-public class TCPServerBuilder extends TCPInfo {
+public class TCPServerBuilder extends TCPRW {
 
 	private ServerSocket ss;
 	private InetSocketAddress isA;
