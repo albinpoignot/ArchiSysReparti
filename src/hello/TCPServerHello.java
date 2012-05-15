@@ -12,7 +12,7 @@ public class TCPServerHello extends TCPServerBuilder implements Runnable {
 	public void run( ) {
 		try
 		{
-			setSs(new ServerSocket());
+			setServerSocket();
 			getSs().bind(getIsA());
 			s = getSs().accept();
 			s.close();

@@ -8,24 +8,28 @@ import builders.TCPServerBuilder;
 public class TCPServerCommunicate extends TCPServerBuilder implements Runnable {
 
 	private Socket s;
+	private InputStream in;
 	
 	public void run( ) {
 		try
 		{
-			setSs(new ServerSocket());
+			setServerSocket();
 			
 			getSs().bind(getIsA());
 			
 			s = getSs().accept();
 			
-			String response = read(s);
+			in = s.getInputStream();
+			String response = read(in);
 			
-			System.out.println("Rcvd : " + response);
+			displayBufferAppli();
 			
 			s.close();
 		}
 		catch(IOException e)
-		{ System.out.println("IOException TCPServer "); }
+		{
+			System.out.println("IOException TCPServer - " + e.getMessage());
+		}
 	}
 	
 	
