@@ -20,7 +20,7 @@ public class TCPClientCommunicate extends TCPClientBuilder implements Runnable {
 			
 			// Ecriture
 			out = getS().getOutputStream();
-			write("Je suis le client", out);
+			write(duplicate("Je suis le client"), out);
 			out.close();
 			
 			// Lecture

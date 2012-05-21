@@ -25,7 +25,7 @@ public class TCPServerCommunicate extends TCPServerBuilder implements Runnable {
 			
 			// Lecture
 			in = s.getInputStream();
-			String response = read(in);
+			StringBuffer response = read(in);
 			in.close();
 			System.out.println("response (server) : " + response);
 			
