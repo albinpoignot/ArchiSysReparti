@@ -3,7 +3,6 @@ package builders;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.Socket;
 
 public class TCPRW extends TCPInfo {
 	
@@ -16,19 +15,20 @@ public class TCPRW extends TCPInfo {
 	}
 	
 	public String read(InputStream in) throws IOException {
+		
+		// Lis le contenu de InputStream puis le met dans bufferAppli
 		int count = in.read(bufferAppli);
 		String msIn = new String(bufferAppli,0,count);
-		in.close();
+		
 		return msIn;
 	}
 	
-	public void write(OutputStream out) throws IOException {
+	public void write(String message, OutputStream out) throws IOException {
 		System.out.println("* Writing...");
 		
-		String msOut = "Aujourd'hui, TP ASR Java." ;
-		out.write(msOut.getBytes());
+		// Ecriture dans le OutputStream + forcage envoi
+		out.write(message.getBytes());
 		out.flush();
-		out.close();
 		
 		System.out.println("* Done !");
 	}

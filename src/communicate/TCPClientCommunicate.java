@@ -1,7 +1,6 @@
 package communicate;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.net.SocketException;
 
 import builders.TCPClientBuilder;
 
@@ -18,12 +17,13 @@ public class TCPClientCommunicate extends TCPClientBuilder implements Runnable {
 			getS().connect(getIsA());
 			
 			out = getS().getOutputStream();
-			write(out);
+			write("Je suis le client", out);
+			out.close();
 			
 			getS().close();
 		}
 		catch(IOException e)
-		{ System.out.println("IOException TCPClient : " + e.getMessage()); }
+		{ System.out.println("IOException TCPClientCommunicate : " + e.getMessage()); }
 	}
 	
 }

@@ -21,14 +21,15 @@ public class TCPServerCommunicate extends TCPServerBuilder implements Runnable {
 			
 			in = s.getInputStream();
 			String response = read(in);
+			in.close();
 			
-			displayBufferAppli();
+			System.out.println("response : " + response);
 			
 			s.close();
 		}
 		catch(IOException e)
 		{
-			System.out.println("IOException TCPServer - " + e.getMessage());
+			System.out.println("IOException TCPServerCommunicate - " + e.getMessage());
 		}
 	}
 	
