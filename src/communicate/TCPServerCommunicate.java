@@ -15,17 +15,28 @@ public class TCPServerCommunicate extends TCPServerBuilder implements Runnable {
 		{
 			setServerSocket();
 			
+			// Paramétrage socket passive et son tps d'attente
 			getSs().bind(getIsA());
+			getSs().setSoTimeout(15000);
 			
+			// Création socket active lorsque connexion client effectuée
 			s = getSs().accept();
+			s.setSoTimeout(10000);			
 			
+			// Lecture
 			in = s.getInputStream();
 			String response = read(in);
 			in.close();
+			System.out.println("response (server) : " + response);
 			
-			System.out.println("response : " + response);
+			// Ecriture
+			/*OutputStream out = s.getOutputStream();
+			write("Je suis le server !! ", out);
+			out.close();*/
 			
+			// Fermeture de la socket
 			s.close();
+			
 		}
 		catch(IOException e)
 		{
