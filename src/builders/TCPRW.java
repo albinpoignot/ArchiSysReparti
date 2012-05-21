@@ -18,7 +18,12 @@ public class TCPRW extends TCPInfo {
 		
 		// Lis le contenu de InputStream puis le met dans bufferAppli
 		int count = in.read(bufferAppli);
-		String msIn = new String(bufferAppli,0,count);
+		String msIn = "";
+		
+		if(count != -1)
+		{
+			msIn = new String(bufferAppli,0,count);
+		}
 		
 		return msIn;
 	}

@@ -2,7 +2,6 @@ package builders;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
-import java.net.SocketException;
 
 public class TCPServerBuilder extends TCPRW {
 
@@ -20,7 +19,6 @@ public class TCPServerBuilder extends TCPRW {
 
 	public void setServerSocket() throws IOException {
 		ss = new ServerSocket();
-		ss.setSoTimeout(5000);
 		isA = new InetSocketAddress("localhost",8080);
 	}
 

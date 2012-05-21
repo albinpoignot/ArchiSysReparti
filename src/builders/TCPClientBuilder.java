@@ -19,7 +19,6 @@ public class TCPClientBuilder extends TCPRW {
 
 	public void setSocket() throws SocketException {
 		s = new Socket();
-		s.setSoTimeout(3000);
 		isA = new InetSocketAddress("localhost",8080);
 	}
 
