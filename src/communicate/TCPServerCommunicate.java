@@ -8,28 +8,28 @@ import builders.TCPServerBuilder;
 public class TCPServerCommunicate extends TCPServerBuilder implements Runnable {
 
 	private Socket s;
+	private InputStream in;
 	
 	public void run( ) {
 		try
 		{
-			setSs(new ServerSocket());
+			setServerSocket();
 			
 			getSs().bind(getIsA());
 			
 			s = getSs().accept();
 			
-			InputStream in = s.getInputStream();
-			byte[] buffer = new byte[8192];
-			int count = in.read(buffer);
-			String msIn = new String(buffer,0,count) ;
-			in.close();
+			in = s.getInputStream();
+			String response = read(in);
 			
-			System.out.println("Received : " + msIn);
+			displayBufferAppli();
 			
 			s.close();
 		}
 		catch(IOException e)
-		{ System.out.println("IOException TCPServer "); }
+		{
+			System.out.println("IOException TCPServer - " + e.getMessage());
+		}
 	}
 	
 	

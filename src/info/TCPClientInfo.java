@@ -9,6 +9,8 @@ public class TCPClientInfo extends TCPClientBuilder implements Runnable {
 	public void run( ) {
 		try
 		{
+			setSocket();
+			
 			System.out.print("----- before connect ");
 			displayClientInfo(getS());
 			getS().connect(getIsA());

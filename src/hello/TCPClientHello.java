@@ -9,6 +9,7 @@ public class TCPClientHello extends TCPClientBuilder implements Runnable {
 	public void run( ) {
 		try
 		{
+			setSocket();
 			getS().connect(getIsA());
 			System.out.println("Hello World, client connected");
 			getS().close();

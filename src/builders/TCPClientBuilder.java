@@ -1,23 +1,26 @@
 package builders;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.SocketException;
 
-public class TCPClientBuilder extends TCPInfo {
+public class TCPClientBuilder extends TCPRW {
 	private Socket s;
 	private InetSocketAddress isA;
 	
 	public TCPClientBuilder() {
-		setS(new Socket());
-		setIsA(new InetSocketAddress("localhost",8080));
-		//isA = new InetSocketAddress("172.25.1.203",55320);
+		s = null;
+		isA = null;
+		
 	}
 
 	public Socket getS() {
 		return s;
 	}
 
-	public void setS(Socket s) {
-		this.s = s;
+	public void setSocket() throws SocketException {
+		s = new Socket();
+		s.setSoTimeout(3000);
+		isA = new InetSocketAddress("localhost",8080);
 	}
 
 	public InetSocketAddress getIsA() {

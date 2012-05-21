@@ -12,7 +12,7 @@ public class TCPServerInfo extends TCPServerBuilder implements Runnable {
 	public void run( ) {
 		try
 		{
-			setSs(new ServerSocket());
+			setServerSocket();
 			
 			System.out.print("----- before bind ");
 			displayServerInfo(getSs());
