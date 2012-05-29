@@ -2,10 +2,11 @@ package communicate;
 import java.net.*;
 import java.io.*;
 
+import builders.TCPServerBuffer;
 import builders.TCPServerBuilder;
 
 /** The TCP server. */
-public class TCPServerCommunicate extends TCPServerBuilder implements Runnable {
+public class TCPServerCommunicate extends TCPServerBuffer implements Runnable {
 
 	private Socket s;
 	private InputStream in;
@@ -21,7 +22,11 @@ public class TCPServerCommunicate extends TCPServerBuilder implements Runnable {
 			
 			// Création socket active lorsque connexion client effectuée
 			s = getSs().accept();
-			s.setSoTimeout(10000);			
+			s.setSoTimeout(10000);	
+			getSs().setReceiveBufferSize(getSize());
+			
+		
+			afficherInfosSocketPassive(getSs());
 			
 			// Lecture
 			in = s.getInputStream();
@@ -44,5 +49,8 @@ public class TCPServerCommunicate extends TCPServerBuilder implements Runnable {
 		}
 	}
 	
-	
+	public TCPServerCommunicate(int bufferSize, int bufferAppliSize)
+	{
+		super(bufferSize, bufferAppliSize);
+	}
 }

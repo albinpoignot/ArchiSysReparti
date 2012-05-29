@@ -6,7 +6,22 @@ import java.io.OutputStream;
 
 public class TCPRW extends TCPInfo {
 	
-	public static final int size = 8192;
+	private int size = 8192;
+	private int sizeAppli = 8192;
+	/**
+	 * @return the size
+	 */
+	public int getSize() {
+		return size;
+	}
+
+	/**
+	 * @param size the size to set
+	 */
+	public void setSize(int size) {
+		this.size = size;
+	}
+
 	private byte[] bufferAppli;
 
 	public TCPRW()
@@ -56,4 +71,26 @@ public class TCPRW extends TCPInfo {
 		}
 		return sb;
 	}
+	
+	public void paramBufferAppli()
+	{
+		//TODO check
+		bufferAppli = new byte[sizeAppli];
+	}
+
+	
+	/**
+	 * @return the sizeAppli
+	 */
+	public int getSizeAppli() {
+		return sizeAppli;
+	}
+
+	/**
+	 * @param sizeAppli the sizeAppli to set
+	 */
+	public void setSizeAppli(int sizeAppli) {
+		this.sizeAppli = sizeAppli;
+	}
+	
 }

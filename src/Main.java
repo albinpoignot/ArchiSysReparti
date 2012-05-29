@@ -15,8 +15,8 @@ class Main {
 		new Thread(new TCPClientInfo()).start();*/
 		
 		/** COMMUNICATE VERSION **/
-		new Thread(new TCPServerCommunicate()).start();
-		new Thread(new TCPClientCommunicate()).start();
+		new Thread(new TCPServerCommunicate(64,1024)).start();
+		new Thread(new TCPClientCommunicate(64)).start();
 	}
 
 }
