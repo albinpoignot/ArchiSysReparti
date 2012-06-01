@@ -18,13 +18,14 @@ public class TCPClientCommunicate extends TCPClientBuffer implements Runnable {
 			// Connexion et définition du timeout
 			getS().setSoTimeout(10000);
 			getS().connect(getIsA());
-			
+			afficherInfosSocketActive(getS());
 			getS().setSendBufferSize(getSize());
 			getS().setReceiveBufferSize(getSize());
-			afficherInfosSocketActive(getS());
+	//		afficherInfosSocketActive(getS());
 			
 			// Ecriture
 			out = getS().getOutputStream();
+			time = System.nanoTime();
 			write(duplicate("Je suis le client"), out);
 			out.close();
 			

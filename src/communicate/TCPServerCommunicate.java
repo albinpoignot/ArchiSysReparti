@@ -23,6 +23,7 @@ public class TCPServerCommunicate extends TCPServerBuffer implements Runnable {
 			// Création socket active lorsque connexion client effectuée
 			s = getSs().accept();
 			s.setSoTimeout(10000);	
+			afficherInfosSocketPassive(getSs());
 			getSs().setReceiveBufferSize(getSize());
 			
 		
